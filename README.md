@@ -1,6 +1,6 @@
 # FlickrImages
 
-Image Search and infinite Flickr images scrolling using Flickr API. Build using Swift 5 & Clean Swift Architecture
+Image Search using Flickr API. Build using Swift 5 & Clean Swift Architecture
 
 ## Libraries Used
 AlamofireImage(~>4.1) for image caching and downloading. Integrated using Pods
@@ -14,6 +14,7 @@ Xcode 11.0 or later
 Removing storyboards
 Building our own image caching library
 Replacing Pods with Carthage to enhance build time
+Adding Test Cases
 
 ## File Grouping
 Scenes: Contains code for multiple different scenes
