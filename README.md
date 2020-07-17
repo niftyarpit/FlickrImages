@@ -12,9 +12,13 @@ Xcode 11.0 or later
 
 ## Upcoming Enhancements
 Removing storyboards
+
 Building our own image caching library
+
 Replacing Pods with Carthage to enhance build time
+
 Adding Test Cases
+
 
 ## File Grouping
 Scenes: Contains code for multiple different scenes
