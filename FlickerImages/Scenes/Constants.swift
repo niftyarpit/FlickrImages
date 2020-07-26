@@ -15,6 +15,7 @@ enum Constants {
     static let perPage = 50
     static let imageCollectionCell = "ImageCollectionCell"
     static let loadMoreView = "LoadMoreView"
-    static let  imagePlaceholder = "imagePlaceholder"
+    static let imagePlaceholder = "imagePlaceholder"
     static let searchPlaceholder = "Enter text to search"
+    static let navigationTitle = "Flicker Images"
 }

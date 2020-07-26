@@ -20,13 +20,13 @@ protocol ListImagesDisplayLogic: class {
 class ListImagesViewController: UIViewController, ListImagesDisplayLogic {
     
     //  Outlets
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var imagesCollectionView: UICollectionView!
+    var activityIndicator: UIActivityIndicatorView!
     
     // Properties
     var interactor: ListImagesBusinessLogic?
     private var photosUrl: [URL] = []
-    private var searchTerm = ""
+    private var searchTerm = EMPTYSTRING
     private var isLoadingAllowed = false
     private var showLoadMoreFooter = false
     private lazy var searchController: UISearchController = {
@@ -54,6 +54,8 @@ class ListImagesViewController: UIViewController, ListImagesDisplayLogic {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
+        configureConstraints()
         configureSearchController()
     }
 
@@ -74,6 +76,37 @@ class ListImagesViewController: UIViewController, ListImagesDisplayLogic {
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = viewController
+    }
+    
+    private func configureViews() {
+        navigationItem.title = Constants.navigationTitle
+        view.backgroundColor = .white
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = .zero
+        layout.sectionInset = .init(top: 1, left: 1, bottom: 1, right: 1)
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        imagesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        imagesCollectionView.backgroundColor = .white
+        imagesCollectionView.dataSource = self
+        imagesCollectionView.delegate = self
+        imagesCollectionView.register(ImageCollectionCell.self, forCellWithReuseIdentifier: Constants.imageCollectionCell)
+        view.addSubview(imagesCollectionView)
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+    
+    private func configureConstraints() {
+        imagesCollectionView.setTranslateMask()
+        let leading = imagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        let trailing = imagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        let top = imagesCollectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
+        let bottom = imagesCollectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        activityIndicator.setTranslateMask()
+        let bottomIndicator = activityIndicator.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        let centerXIndicator = activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom, bottomIndicator, centerXIndicator])
     }
     
     private func configureSearchController() {
@@ -122,7 +155,7 @@ extension ListImagesViewController: UICollectionViewDataSource {
 
 extension ListImagesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = view.frame.size.width/3 - 3
+        let size = view.frame.size.width/3 - 2
         return CGSize(width: size, height: size)
     }
 }
@@ -153,3 +186,12 @@ extension ListImagesViewController : SearchResultControllerDelegate {
     }
 }
 
+protocol AutoLayable {
+    func setTranslateMask()
+}
+
+extension UIView: AutoLayable {
+    func setTranslateMask() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
