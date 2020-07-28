@@ -25,6 +25,8 @@
 		F52F495724C03B060056EEDC /* ListImagesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495124C03B060056EEDC /* ListImagesModels.swift */; };
 		F52F495824C03B060056EEDC /* ListImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495224C03B060056EEDC /* ListImagesViewController.swift */; };
 		F52F495924C03B060056EEDC /* ListImagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495324C03B060056EEDC /* ListImagesInteractor.swift */; };
+		F58204E824D0114E000CDF72 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58204E624D01133000CDF72 /* Hero.framework */; };
+		F58204E924D0114E000CDF72 /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F58204E624D01133000CDF72 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,20 @@
 			remoteInfo = FlickerImages;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F58204E424D0029D000CDF72 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F58204E924D0114E000CDF72 /* Hero.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00DDBD6790B9EB6FB748CD3C /* Pods-FlickerImagesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerImagesTests.debug.xcconfig"; path = "Target Support Files/Pods-FlickerImagesTests/Pods-FlickerImagesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +80,7 @@
 		F52F495124C03B060056EEDC /* ListImagesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesModels.swift; sourceTree = "<group>"; };
 		F52F495224C03B060056EEDC /* ListImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesViewController.swift; sourceTree = "<group>"; };
 		F52F495324C03B060056EEDC /* ListImagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesInteractor.swift; sourceTree = "<group>"; };
+		F58204E624D01133000CDF72 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA75CECE0669895D8894A98 /* Pods_FlickerImages.framework in Frameworks */,
+				F58204E824D0114E000CDF72 /* Hero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +118,7 @@
 		D1772EE2A64256486F2852E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F58204E624D01133000CDF72 /* Hero.framework */,
 				0F6B15DCA02134A5EFDFD3C2 /* Pods_FlickerImages.framework */,
 				EAFF3B5B279A22F9BD62FA50 /* Pods_FlickerImagesTests.framework */,
 			);
@@ -194,6 +213,8 @@
 				F52F492624C03ABA0056EEDC /* Frameworks */,
 				F52F492724C03ABA0056EEDC /* Resources */,
 				5B8474F3A61668E00BA00475 /* [CP] Embed Pods Frameworks */,
+				F58204E424D0029D000CDF72 /* Embed Frameworks */,
+				F58204E524D0030C000CDF72 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -342,6 +363,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F58204E524D0030C000CDF72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -515,6 +553,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FlickerImages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -534,6 +576,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = FlickerImages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
