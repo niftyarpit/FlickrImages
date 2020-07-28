@@ -17,7 +17,7 @@ protocol ListImagesBusinessLogic {
 
 class ListImagesInteractor: ListImagesBusinessLogic {
     var presenter: ListImagesPresentationLogic?
-    private let worker = DataWorker(store: API())
+    var worker = DataWorker(store: API())
     private var photoUrls: [URL] = []
     private var pageNumber = 1
     private var searchTerm = EMPTYSTRING

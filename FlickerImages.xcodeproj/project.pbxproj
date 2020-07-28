@@ -27,6 +27,7 @@
 		F52F495924C03B060056EEDC /* ListImagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495324C03B060056EEDC /* ListImagesInteractor.swift */; };
 		F58204E824D0114E000CDF72 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58204E624D01133000CDF72 /* Hero.framework */; };
 		F58204E924D0114E000CDF72 /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F58204E624D01133000CDF72 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F582050324D076FB000CDF72 /* ListImagesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		F52F495224C03B060056EEDC /* ListImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesViewController.swift; sourceTree = "<group>"; };
 		F52F495324C03B060056EEDC /* ListImagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesInteractor.swift; sourceTree = "<group>"; };
 		F58204E624D01133000CDF72 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
+		F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListImagesInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		F52F494224C03ABC0056EEDC /* FlickerImagesTests */ = {
 			isa = PBXGroup;
 			children = (
+				F58204F624D076FB000CDF72 /* Scenes */,
 				F52F494324C03ABC0056EEDC /* FlickerImagesTests.swift */,
 				F52F494524C03ABC0056EEDC /* Info.plist */,
 			);
@@ -199,6 +202,22 @@
 				F50B018324C04F6E0005738F /* ListImages */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F58204F624D076FB000CDF72 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F58204F724D076FB000CDF72 /* ListImages */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F58204F724D076FB000CDF72 /* ListImages */ = {
+			isa = PBXGroup;
+			children = (
+				F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */,
+			);
+			path = ListImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F52F494424C03ABC0056EEDC /* FlickerImagesTests.swift in Sources */,
+				F582050324D076FB000CDF72 /* ListImagesInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
