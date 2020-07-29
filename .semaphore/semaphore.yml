@@ -16,6 +16,7 @@ blocks:
           - cache restore
           - bundle install --path vendor/bundle
           - cache store
+          - pod install
       jobs:
         - name: bundle exec fastlane tests
           commands:
