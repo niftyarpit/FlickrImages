@@ -16,6 +16,7 @@
 		F50B019124C0CA100005738F /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B019024C0CA100005738F /* ImageCollectionCell.swift */; };
 		F50B019324C0EB3A0005738F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B019224C0EB3A0005738F /* Constants.swift */; };
 		F50B019524C0FA4B0005738F /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B019424C0FA4B0005738F /* SearchResultController.swift */; };
+		F517B57624D1436E0001A86D /* FlickerImagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F517B57524D1436E0001A86D /* FlickerImagesUITests.swift */; };
 		F52F492D24C03ABA0056EEDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F492C24C03ABA0056EEDC /* AppDelegate.swift */; };
 		F52F492F24C03ABA0056EEDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F492E24C03ABA0056EEDC /* SceneDelegate.swift */; };
 		F52F493624C03ABC0056EEDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52F493524C03ABC0056EEDC /* Assets.xcassets */; };
@@ -31,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F517B57824D1436E0001A86D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F52F492124C03ABA0056EEDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F52F492824C03ABA0056EEDC;
+			remoteInfo = FlickerImages;
+		};
 		F52F494024C03ABC0056EEDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F52F492124C03ABA0056EEDC /* Project object */;
@@ -68,6 +76,9 @@
 		F50B019024C0CA100005738F /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		F50B019224C0EB3A0005738F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F50B019424C0FA4B0005738F /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
+		F517B57324D1436E0001A86D /* FlickerImagesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickerImagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F517B57524D1436E0001A86D /* FlickerImagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickerImagesUITests.swift; sourceTree = "<group>"; };
+		F517B57724D1436E0001A86D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F52F492924C03ABA0056EEDC /* FlickerImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickerImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52F492C24C03ABA0056EEDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F52F492E24C03ABA0056EEDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +97,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F517B57024D1436E0001A86D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F52F492624C03ABA0056EEDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,11 +167,21 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		F517B57424D1436E0001A86D /* FlickerImagesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F517B57524D1436E0001A86D /* FlickerImagesUITests.swift */,
+				F517B57724D1436E0001A86D /* Info.plist */,
+			);
+			path = FlickerImagesUITests;
+			sourceTree = "<group>";
+		};
 		F52F492024C03ABA0056EEDC = {
 			isa = PBXGroup;
 			children = (
 				F52F492B24C03ABA0056EEDC /* FlickerImages */,
 				F52F494224C03ABC0056EEDC /* FlickerImagesTests */,
+				F517B57424D1436E0001A86D /* FlickerImagesUITests */,
 				F52F492A24C03ABA0056EEDC /* Products */,
 				68A97419609CFDC91872148D /* Pods */,
 				D1772EE2A64256486F2852E7 /* Frameworks */,
@@ -165,6 +193,7 @@
 			children = (
 				F52F492924C03ABA0056EEDC /* FlickerImages.app */,
 				F52F493F24C03ABC0056EEDC /* FlickerImagesTests.xctest */,
+				F517B57324D1436E0001A86D /* FlickerImagesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +252,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F517B57224D1436E0001A86D /* FlickerImagesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F517B57C24D1436E0001A86D /* Build configuration list for PBXNativeTarget "FlickerImagesUITests" */;
+			buildPhases = (
+				F517B56F24D1436E0001A86D /* Sources */,
+				F517B57024D1436E0001A86D /* Frameworks */,
+				F517B57124D1436E0001A86D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F517B57924D1436E0001A86D /* PBXTargetDependency */,
+			);
+			name = FlickerImagesUITests;
+			productName = FlickerImagesUITests;
+			productReference = F517B57324D1436E0001A86D /* FlickerImagesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F52F492824C03ABA0056EEDC /* FlickerImages */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F52F494824C03ABC0056EEDC /* Build configuration list for PBXNativeTarget "FlickerImages" */;
@@ -273,6 +320,10 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Arpit Srivastava";
 				TargetAttributes = {
+					F517B57224D1436E0001A86D = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = F52F492824C03ABA0056EEDC;
+					};
 					F52F492824C03ABA0056EEDC = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -297,11 +348,19 @@
 			targets = (
 				F52F492824C03ABA0056EEDC /* FlickerImages */,
 				F52F493E24C03ABC0056EEDC /* FlickerImagesTests */,
+				F517B57224D1436E0001A86D /* FlickerImagesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F517B57124D1436E0001A86D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F52F492724C03ABA0056EEDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,6 +462,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F517B56F24D1436E0001A86D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F517B57624D1436E0001A86D /* FlickerImagesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F52F492524C03ABA0056EEDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,6 +501,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F517B57924D1436E0001A86D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F52F492824C03ABA0056EEDC /* FlickerImages */;
+			targetProxy = F517B57824D1436E0001A86D /* PBXContainerItemProxy */;
+		};
 		F52F494124C03ABC0056EEDC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F52F492824C03ABA0056EEDC /* FlickerImages */;
@@ -453,6 +525,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F517B57A24D1436E0001A86D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlickerImagesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpit.FlickerImagesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlickerImages;
+			};
+			name = Debug;
+		};
+		F517B57B24D1436E0001A86D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlickerImagesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arpit.FlickerImagesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlickerImages;
+			};
+			name = Release;
+		};
 		F52F494624C03ABC0056EEDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,6 +770,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F517B57C24D1436E0001A86D /* Build configuration list for PBXNativeTarget "FlickerImagesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F517B57A24D1436E0001A86D /* Debug */,
+				F517B57B24D1436E0001A86D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F52F492424C03ABA0056EEDC /* Build configuration list for PBXProject "FlickerImages" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
