@@ -24,4 +24,15 @@ platform :ios do
   lane :tests do
     run_tests(workspace: "FlickerImages.xcworkspace", scheme: "FlickerImages")
   end
+  
+  lane :build do
+    #gym(workspace: "FlickerImages.xcworkspace", scheme: "FlickerImages", clean: true)
+    xcbuild(
+        workspace: "FlickerImages.xcworkspace",
+        scheme: "FlickerImages",
+        configuration: "Debug",
+        xcargs: "-sdk iphonesimulator SYMROOT='/var/tmp/'"
+    )
+  end
+  
 end

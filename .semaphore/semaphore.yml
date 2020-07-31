@@ -33,7 +33,9 @@ blocks:
           - cache restore
           - bundle install --path vendor/bundle
           - cache store
+          - pod install
+          - carthage update
       jobs:
         - name: bundle exec fastlane build
           commands:
-            - bundle exec xcversion select 11.3.1
+            - bundle exec fastlane build

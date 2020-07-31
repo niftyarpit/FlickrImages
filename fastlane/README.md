@@ -26,6 +26,11 @@ Generate new localized screenshots
 fastlane ios tests
 ```
 
+### ios build
+```
+fastlane ios build
+```
+
 
 ----
 
