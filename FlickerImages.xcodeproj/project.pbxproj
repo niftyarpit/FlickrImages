@@ -26,8 +26,6 @@
 		F52F495724C03B060056EEDC /* ListImagesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495124C03B060056EEDC /* ListImagesModels.swift */; };
 		F52F495824C03B060056EEDC /* ListImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495224C03B060056EEDC /* ListImagesViewController.swift */; };
 		F52F495924C03B060056EEDC /* ListImagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495324C03B060056EEDC /* ListImagesInteractor.swift */; };
-		F58204E824D0114E000CDF72 /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58204E624D01133000CDF72 /* Hero.framework */; };
-		F58204E924D0114E000CDF72 /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F58204E624D01133000CDF72 /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F582050324D076FB000CDF72 /* ListImagesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F58204E924D0114E000CDF72 /* Hero.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +106,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA75CECE0669895D8894A98 /* Pods_FlickerImages.framework in Frameworks */,
-				F58204E824D0114E000CDF72 /* Hero.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

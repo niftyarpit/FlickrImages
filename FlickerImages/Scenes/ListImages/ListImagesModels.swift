@@ -36,7 +36,7 @@ struct PhotosList: Decodable {
 
 struct Photos: Decodable {
     let page, pages, perpage: Int
-    let total: String
+    let total: Int
     let photo: [Photo]
 }
 
