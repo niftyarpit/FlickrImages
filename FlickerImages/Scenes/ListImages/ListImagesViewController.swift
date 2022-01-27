@@ -13,7 +13,7 @@
 import UIKit
 import AlamofireImage
 
-protocol ListImagesDisplayLogic: class {
+protocol ListImagesDisplayLogic: AnyObject {
     func displayRefresh(viewModel: ListImages.Refresh.ViewModel)
 }
 

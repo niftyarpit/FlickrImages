@@ -15,7 +15,7 @@ enum FetchDataError {
     case cannotFetch(String)
 }
 
-protocol StoreProtocol: class {
+protocol StoreProtocol: AnyObject {
     func fetchImagesList(using params: [String: Any], completionHandler: @escaping (_ result: FetchDataResult<PhotosList>) -> Void)
 }
 

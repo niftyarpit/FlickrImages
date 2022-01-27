@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchResultControllerDelegate: class {
+protocol SearchResultControllerDelegate: AnyObject {
     func didTapSearchBar(withText searchText: String)
 }
 
