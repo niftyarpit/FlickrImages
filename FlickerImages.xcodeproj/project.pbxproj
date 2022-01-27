@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		F52F495724C03B060056EEDC /* ListImagesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495124C03B060056EEDC /* ListImagesModels.swift */; };
 		F52F495824C03B060056EEDC /* ListImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495224C03B060056EEDC /* ListImagesViewController.swift */; };
 		F52F495924C03B060056EEDC /* ListImagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52F495324C03B060056EEDC /* ListImagesInteractor.swift */; };
+		F56990952799C96A009026AA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F56990942799C96A009026AA /* AlamofireImage */; };
 		F582050324D076FB000CDF72 /* ListImagesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA75CECE0669895D8894A98 /* Pods_FlickerImages.framework in Frameworks */,
+				F56990952799C96A009026AA /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +276,6 @@
 				F52F492524C03ABA0056EEDC /* Sources */,
 				F52F492624C03ABA0056EEDC /* Frameworks */,
 				F52F492724C03ABA0056EEDC /* Resources */,
-				5B8474F3A61668E00BA00475 /* [CP] Embed Pods Frameworks */,
 				F58204E424D0029D000CDF72 /* Embed Frameworks */,
 				F58204E524D0030C000CDF72 /* ShellScript */,
 			);
@@ -283,6 +284,9 @@
 			dependencies = (
 			);
 			name = FlickerImages;
+			packageProductDependencies = (
+				F56990942799C96A009026AA /* AlamofireImage */,
+			);
 			productName = FlickerImages;
 			productReference = F52F492924C03ABA0056EEDC /* FlickerImages.app */;
 			productType = "com.apple.product-type.application";
@@ -338,6 +342,9 @@
 				Base,
 			);
 			mainGroup = F52F492024C03ABA0056EEDC;
+			packageReferences = (
+				F56990932799C96A009026AA /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+			);
 			productRefGroup = F52F492A24C03ABA0056EEDC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -397,23 +404,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B8474F3A61668E00BA00475 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FlickerImages/Pods-FlickerImages-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FlickerImages/Pods-FlickerImages-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlickerImages/Pods-FlickerImages-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0CCDDB91D0064840A6D8BF0 /* [CP] Check Pods Manifest.lock */ = {
@@ -803,6 +793,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F56990932799C96A009026AA /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F56990942799C96A009026AA /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F56990932799C96A009026AA /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F52F492124C03ABA0056EEDC /* Project object */;
 }
