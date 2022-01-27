@@ -37,20 +37,20 @@ class ListImagesInteractor: ListImagesBusinessLogic {
             let params: [String: Any] = [Constants.searchTerm: self.searchTerm,
                                          Constants.pageNumber: self.pageNumber]
             // API call
-            self.worker.fetchImagesList(using: params) { [weak self] (result: FetchDataResult) in
-                guard let strongSelf = self else { return }
+            Task {
+                let result = await self.worker.fetchImagesList(using: params)
                 switch result {
-                case .success(let fetchedData):
-                    strongSelf.photoUrls.append(contentsOf: strongSelf.getPhotoUrls(from: fetchedData))
-                case .failure(let error):
-                    switch error {
-                    case .cannotFetch(let errorMessage):
-                        print(errorMessage)
-                    }
+                    case .success(let fetchedData):
+                        self.photoUrls.append(contentsOf: self.getPhotoUrls(from: fetchedData))
+                    case .failure(let error):
+                        switch error {
+                            case .cannotFetch(let errorMessage):
+                                print(errorMessage)
+                        }
                 }
-                DispatchQueue.main.async {
-                    let response = ListImages.Refresh.Response(photoUrls: strongSelf.photoUrls)
-                    strongSelf.presenter?.presentRefresh(response: response)
+                let response = ListImages.Refresh.Response(photoUrls: self.photoUrls)
+                await MainActor.run {
+                    self.presenter?.presentRefresh(response: response)
                 }
             }
         }

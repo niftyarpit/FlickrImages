@@ -16,7 +16,7 @@ enum FetchDataError {
 }
 
 protocol StoreProtocol: AnyObject {
-    func fetchImagesList(using params: [String: Any], completionHandler: @escaping (_ result: FetchDataResult<PhotosList>) -> Void)
+    func fetchImagesList(using params: [String: Any]) async -> FetchDataResult<PhotosList>
 }
 
 class DataWorker {
@@ -25,17 +25,7 @@ class DataWorker {
         self.store = store
     }
     
-    func fetchImagesList(using params: [String: Any], completionHandler: @escaping (_ result: FetchDataResult<PhotosList>) -> Void) {
-        store.fetchImagesList(using: params) {result in
-            switch result {
-            case .success(let data):
-                completionHandler(FetchDataResult.success(result: data))
-            case .failure(let error):
-                switch error {
-                case .cannotFetch(let errorMessage):
-                    completionHandler(FetchDataResult.failure(error: FetchDataError.cannotFetch(errorMessage)))
-                }
-            }
-        }
+    func fetchImagesList(using params: [String: Any]) async -> FetchDataResult<PhotosList> {
+        await store.fetchImagesList(using: params)
     }
 }

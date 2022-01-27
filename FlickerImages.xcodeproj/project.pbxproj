@@ -11,7 +11,6 @@
 		7BA75CECE0669895D8894A98 /* Pods_FlickerImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6B15DCA02134A5EFDFD3C2 /* Pods_FlickerImages.framework */; };
 		F50B018224C048260005738F /* DataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B018124C048260005738F /* DataWorker.swift */; };
 		F50B018524C051DD0005738F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B018424C051DD0005738F /* API.swift */; };
-		F50B018724C051F10005738F /* StaticJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B018624C051F10005738F /* StaticJson.swift */; };
 		F50B018B24C0C2520005738F /* PhotosListData.json in Resources */ = {isa = PBXBuildFile; fileRef = F50B018A24C0C2520005738F /* PhotosListData.json */; };
 		F50B019124C0CA100005738F /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B019024C0CA100005738F /* ImageCollectionCell.swift */; };
 		F50B019324C0EB3A0005738F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50B019224C0EB3A0005738F /* Constants.swift */; };
@@ -69,7 +68,6 @@
 		EAFF3B5B279A22F9BD62FA50 /* Pods_FlickerImagesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickerImagesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50B018124C048260005738F /* DataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWorker.swift; sourceTree = "<group>"; };
 		F50B018424C051DD0005738F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		F50B018624C051F10005738F /* StaticJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticJson.swift; sourceTree = "<group>"; };
 		F50B018A24C0C2520005738F /* PhotosListData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhotosListData.json; sourceTree = "<group>"; };
 		F50B019024C0CA100005738F /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		F50B019224C0EB3A0005738F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				F50B018124C048260005738F /* DataWorker.swift */,
-				F50B018624C051F10005738F /* StaticJson.swift */,
 				F50B018424C051DD0005738F /* API.swift */,
 				F50B019224C0EB3A0005738F /* Constants.swift */,
 				F50B018324C04F6E0005738F /* ListImages */,
@@ -469,7 +466,6 @@
 				F52F495724C03B060056EEDC /* ListImagesModels.swift in Sources */,
 				F52F495924C03B060056EEDC /* ListImagesInteractor.swift in Sources */,
 				F52F492F24C03ABA0056EEDC /* SceneDelegate.swift in Sources */,
-				F50B018724C051F10005738F /* StaticJson.swift in Sources */,
 				F50B019324C0EB3A0005738F /* Constants.swift in Sources */,
 				F50B019524C0FA4B0005738F /* SearchResultController.swift in Sources */,
 			);
