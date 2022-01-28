@@ -27,6 +27,7 @@
 		F56990952799C96A009026AA /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F56990942799C96A009026AA /* AlamofireImage */; };
 		F582050324D076FB000CDF72 /* ListImagesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */; };
 		F5ED091C27A31CD90097151C /* PhotosListData.json in Resources */ = {isa = PBXBuildFile; fileRef = F5ED091B27A31CD90097151C /* PhotosListData.json */; };
+		F5ED091E27A413F80097151C /* ListImagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED091D27A413F80097151C /* ListImagesUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		F58204E624D01133000CDF72 /* Hero.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hero.framework; path = Carthage/Build/iOS/Hero.framework; sourceTree = "<group>"; };
 		F58204FB24D076FB000CDF72 /* ListImagesInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListImagesInteractorTests.swift; sourceTree = "<group>"; };
 		F5ED091B27A31CD90097151C /* PhotosListData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhotosListData.json; sourceTree = "<group>"; };
+		F5ED091D27A413F80097151C /* ListImagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		F517B57424D1436E0001A86D /* FlickerImagesUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F5ED091D27A413F80097151C /* ListImagesUITests.swift */,
 				F517B57524D1436E0001A86D /* FlickerImagesUITests.swift */,
 				F517B57724D1436E0001A86D /* Info.plist */,
 			);
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F517B57624D1436E0001A86D /* FlickerImagesUITests.swift in Sources */,
+				F5ED091E27A413F80097151C /* ListImagesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
