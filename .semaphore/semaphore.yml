@@ -17,7 +17,6 @@ blocks:
           - bundle install --path vendor/bundle
           - cache store
           - pod install
-          - carthage update
       jobs:
         - name: bundle exec fastlane tests
           commands:
@@ -34,7 +33,6 @@ blocks:
           - bundle install --path vendor/bundle
           - cache store
           - pod install
-          - carthage update
       jobs:
         - name: bundle exec fastlane build
           commands:
