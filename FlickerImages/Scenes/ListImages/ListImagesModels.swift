@@ -17,31 +17,30 @@ enum ListImages {
     
     enum Refresh {
         struct Request {
-            var searchTerm: String
-            var shouldIncreasePageNumber: Bool
+            let searchTerm: String
+            let shouldIncreasePageNumber: Bool
         }
         struct Response {
-            var photoUrls: [URL]
+            let photoUrls: [URL]
         }
         struct ViewModel {
-            var photoUrls: [URL]
+            let photoUrls: [URL]
         }
     }
 }
 
 struct PhotosList: Decodable {
-    let photos: Photos
     let stat: String
-}
+    let photos: Photos
 
-struct Photos: Decodable {
-    let page, pages, perpage: Int
-    let total: Int
-    let photo: [Photo]
-}
+    struct Photos: Decodable {
+        let page, pages, perpage, total: Int
+        let photo: [Photo]
 
-struct Photo: Decodable {
-    let title, id, owner, secret, server: String
-    let farm, ispublic, isfriend, isfamily: Int
+        struct Photo: Decodable {
+            let title, id, owner, secret, server: String
+            let farm, ispublic, isfriend, isfamily: Int
+        }
+    }
 }
 

@@ -11,14 +11,18 @@
 //
 import Foundation
 
+protocol ListImagesDataStore {
+    var photos: [PhotosList.Photos.Photo] { get }
+}
+
 protocol ListImagesBusinessLogic {
     func refresh(request: ListImages.Refresh.Request)
 }
 
-class ListImagesInteractor: ListImagesBusinessLogic {
+class ListImagesInteractor: ListImagesBusinessLogic, ListImagesDataStore {
     var presenter: ListImagesPresentationLogic?
     var worker = DataWorker(store: API())
-    private var photoUrls: [URL] = []
+    var photos: [PhotosList.Photos.Photo] = []
     private var pageNumber = 1
     private var searchTerm = EMPTYSTRING
     
@@ -40,14 +44,15 @@ class ListImagesInteractor: ListImagesBusinessLogic {
             let result = await self.worker.fetchImagesList(using: params)
             switch result {
                 case .success(let fetchedData):
-                    self.photoUrls.append(contentsOf: self.getPhotoUrls(from: fetchedData))
+                    self.photos.append(contentsOf: fetchedData.photos.photo)
                 case .failure(let error):
                     switch error {
                         case .cannotFetch(let errorMessage):
                             print(errorMessage)
                     }
             }
-            let response = ListImages.Refresh.Response(photoUrls: self.photoUrls)
+            let photoUrls = self.getPhotoUrls()
+            let response = ListImages.Refresh.Response(photoUrls: photoUrls)
             await MainActor.run {
                 self.presenter?.presentRefresh(response: response)
             }
@@ -55,15 +60,12 @@ class ListImagesInteractor: ListImagesBusinessLogic {
     }
     
     // MARK: Private
-    private func getPhotoUrls(from data: PhotosList) -> [URL] {
-        let photoUrls = data.photos.photo.map { photo -> URL in
-            return URL(string: "https://farm\(photo.farm).staticFlickr.com/\(photo.server)/\(photo.id)_\(photo.secret)_m.jpg")!
-        }
-        return photoUrls
+    private func getPhotoUrls() -> [URL] {
+        photos.map { URL(string: "https://farm\($0.farm).staticFlickr.com/\($0.server)/\($0.id)_\($0.secret)_m.jpg")! }
     }
     
     private func resetStates() {
-        self.photoUrls.removeAll()
-        self.pageNumber = 1
+        photos.removeAll()
+        pageNumber = 1
     }
 }

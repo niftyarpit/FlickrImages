@@ -25,6 +25,7 @@ class ListImagesViewController: UIViewController, ListImagesDisplayLogic {
     
     // Properties
     var interactor: ListImagesBusinessLogic?
+    var router: (ListImagesRoutingLogic & ListImagesDataPassing)?
     private var photosUrl: [URL] = []
     private var searchTerm = EMPTYSTRING
     private var isLoadingAllowed = false
@@ -73,9 +74,13 @@ class ListImagesViewController: UIViewController, ListImagesDisplayLogic {
         let viewController = self
         let interactor = ListImagesInteractor()
         let presenter = ListImagesPresenter()
+        let router = ListImagesRouter()
+        viewController.router = router
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = viewController
+        router.dataStore = interactor
+        router.viewController = viewController
     }
     
     private func configureViews() {
@@ -126,31 +131,21 @@ class ListImagesViewController: UIViewController, ListImagesDisplayLogic {
 extension ListImagesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photosUrl.count
+        photosUrl.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.imageCollectionCell, for: indexPath) as! ImageCollectionCell
         cell.imageView.af.setImage(withURL: photosUrl[indexPath.row], placeholderImage: UIImage(named: Constants.imagePlaceholder))
         return cell
+    }    
+}
+
+extension ListImagesViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router?.routeToImageDetails(for: indexPath.row)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        switch kind {
-//        case UICollectionView.elementKindSectionFooter:
-//            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.loadMoreView, for: indexPath)
-//            return footerView
-//        default:
-//            assert(false, "Unexpected supplementary element kind")
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-//        if showLoadMoreFooter {
-//            return CGSize(width: view.frame.size.width, height: 50)
-//        }
-//        return CGSize.zero
-//    }
 }
 
 extension ListImagesViewController: UICollectionViewDelegateFlowLayout {
@@ -192,6 +187,6 @@ protocol AutoLayable {
 
 extension UIView: AutoLayable {
     func setTranslateMask() {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
     }
 }
