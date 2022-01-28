@@ -48,9 +48,13 @@ class ListImagesInteractorTests: XCTestCase {
         var fetchImagesListCalled = false
         
         // MARK: Spied methods
-        override func fetchImagesList(using params: [String: Any], completionHandler: @escaping (_ result: FetchDataResult<PhotosList>) -> Void) {
+        override func fetchImagesList(using params: [String : Any]) async -> FetchDataResult<PhotosList> {
             fetchImagesListCalled = true
-            super.fetchImagesList(using: params, completionHandler: completionHandler)
+            let path = Bundle(for: ListImagesInteractorTests.self).path(forResource: "PhotosListData", ofType: "json")
+            let data = try! NSData(contentsOfFile: path!, options: NSData.ReadingOptions.mappedIfSafe) as Data
+            let decoder = JSONDecoder()
+            let photosList = try! decoder.decode(PhotosList.self, from: data)
+            return FetchDataResult.success(result: photosList)
         }
     }
 
@@ -60,7 +64,7 @@ class ListImagesInteractorTests: XCTestCase {
         // Given
         let spy = ListImagesPresentationLogicSpy()
         sut.presenter = spy
-        let dataWorkerSpy = DataWorkerSpy(store: StaticJson())
+        let dataWorkerSpy = DataWorkerSpy(store: API())
         sut.worker = dataWorkerSpy
         let request = ListImages.Refresh.Request(searchTerm: "abc", shouldIncreasePageNumber: true)
         
@@ -81,7 +85,7 @@ class ListImagesInteractorTests: XCTestCase {
         // Given
         let spy = ListImagesPresentationLogicSpy()
         sut.presenter = spy
-        let workerSpy = DataWorkerSpy(store: StaticJson())
+        let workerSpy = DataWorkerSpy(store: API())
         sut.worker = workerSpy
         let request = ListImages.Refresh.Request(searchTerm: "abc", shouldIncreasePageNumber: true)
         

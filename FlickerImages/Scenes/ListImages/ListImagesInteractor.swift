@@ -24,7 +24,7 @@ class ListImagesInteractor: ListImagesBusinessLogic {
     
     //MARK: ListImagesBusinessLogic
     func refresh(request: ListImages.Refresh.Request) {
-        DispatchQueue.global(qos: .userInitiated).async {
+        Task {
             // business logic
             if request.shouldIncreasePageNumber {
                 self.pageNumber += 1
@@ -37,21 +37,19 @@ class ListImagesInteractor: ListImagesBusinessLogic {
             let params: [String: Any] = [Constants.searchTerm: self.searchTerm,
                                          Constants.pageNumber: self.pageNumber]
             // API call
-            Task {
-                let result = await self.worker.fetchImagesList(using: params)
-                switch result {
-                    case .success(let fetchedData):
-                        self.photoUrls.append(contentsOf: self.getPhotoUrls(from: fetchedData))
-                    case .failure(let error):
-                        switch error {
-                            case .cannotFetch(let errorMessage):
-                                print(errorMessage)
-                        }
-                }
-                let response = ListImages.Refresh.Response(photoUrls: self.photoUrls)
-                await MainActor.run {
-                    self.presenter?.presentRefresh(response: response)
-                }
+            let result = await self.worker.fetchImagesList(using: params)
+            switch result {
+                case .success(let fetchedData):
+                    self.photoUrls.append(contentsOf: self.getPhotoUrls(from: fetchedData))
+                case .failure(let error):
+                    switch error {
+                        case .cannotFetch(let errorMessage):
+                            print(errorMessage)
+                    }
+            }
+            let response = ListImages.Refresh.Response(photoUrls: self.photoUrls)
+            await MainActor.run {
+                self.presenter?.presentRefresh(response: response)
             }
         }
     }
