@@ -58,4 +58,49 @@ class ListImagesUITests: XCTestCase {
         XCTAssertTrue(flickerImagesNavigationBar.exists)
         XCTAssertFalse(flickerImagesNavigationBar.buttons["Cancel"].exists)
     }
+
+    func testClickingOnItemShouldShowDetailsPage() {
+        // Given
+        let app = XCUIApplication()
+        let flickerImagesNavigationBar = app.navigationBars["Flicker Images"]
+
+        // When
+        flickerImagesNavigationBar.searchFields["Enter text to search"].tap()
+        app.keyboards.keys["M"].tap()
+        app.keyboards.keys["a"].tap()
+        app.keyboards.keys["n"].tap()
+        app.keyboards.keys["g"].tap()
+        app.keyboards.keys["o"].tap()
+        app.keyboards.buttons["search"].tap()
+        sleep(5)
+        app.collectionViews.children(matching:.any).element(boundBy: 0).tap()
+        //app.collectionViews.children(matching: .cell).element(boundBy: 0).children(matching: .other).element.tap()
+
+        // Then
+        XCTAssertTrue(app.staticTexts["BPI Sports Best Glutamine Peach Mango 400 gr"].exists)
+        XCTAssertTrue(app.navigationBars["FlickerImages.ImageDetailsView"].buttons["Flicker Images"].exists)
+    }
+
+    func testClickingBackOnDetailsShowListPage() {
+
+        // Given
+        let app = XCUIApplication()
+        let flickerImagesNavigationBar = app.navigationBars["Flicker Images"]
+
+        // When
+        flickerImagesNavigationBar.searchFields["Enter text to search"].tap()
+        app.keyboards.keys["M"].tap()
+        app.keyboards.keys["a"].tap()
+        app.keyboards.keys["n"].tap()
+        app.keyboards.buttons["search"].tap()
+        sleep(5)
+        app.collectionViews.children(matching:.any).element(boundBy: 0).tap()
+        sleep(2)
+        app.navigationBars["FlickerImages.ImageDetailsView"].buttons["Flicker Images"].tap()
+        sleep(2)
+
+        // Then
+        XCTAssertTrue(flickerImagesNavigationBar.exists)
+        XCTAssertTrue(flickerImagesNavigationBar.searchFields["Enter text to search"].exists)
+    }
 }
