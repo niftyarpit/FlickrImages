@@ -29,7 +29,6 @@
 		F5ED091C27A31CD90097151C /* PhotosListData.json in Resources */ = {isa = PBXBuildFile; fileRef = F5ED091B27A31CD90097151C /* PhotosListData.json */; };
 		F5ED091E27A413F80097151C /* ListImagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED091D27A413F80097151C /* ListImagesUITests.swift */; };
 		F5ED092027A4261E0097151C /* ListImagesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED091F27A4261E0097151C /* ListImagesRouter.swift */; };
-		F5ED092727A4338C0097151C /* ImageDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED092227A4338C0097151C /* ImageDetailsPresenter.swift */; };
 		F5ED092827A4338C0097151C /* ImageDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED092327A4338C0097151C /* ImageDetailsRouter.swift */; };
 		F5ED092927A4338C0097151C /* ImageDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED092427A4338C0097151C /* ImageDetailsModels.swift */; };
 		F5ED092A27A4338C0097151C /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED092527A4338C0097151C /* ImageDetailsViewController.swift */; };
@@ -99,7 +98,6 @@
 		F5ED091B27A31CD90097151C /* PhotosListData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PhotosListData.json; sourceTree = "<group>"; };
 		F5ED091D27A413F80097151C /* ListImagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesUITests.swift; sourceTree = "<group>"; };
 		F5ED091F27A4261E0097151C /* ListImagesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesRouter.swift; sourceTree = "<group>"; };
-		F5ED092227A4338C0097151C /* ImageDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsPresenter.swift; sourceTree = "<group>"; };
 		F5ED092327A4338C0097151C /* ImageDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsRouter.swift; sourceTree = "<group>"; };
 		F5ED092427A4338C0097151C /* ImageDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsModels.swift; sourceTree = "<group>"; };
 		F5ED092527A4338C0097151C /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 			children = (
 				F5ED092327A4338C0097151C /* ImageDetailsRouter.swift */,
 				F5ED092527A4338C0097151C /* ImageDetailsViewController.swift */,
-				F5ED092227A4338C0097151C /* ImageDetailsPresenter.swift */,
 				F5ED092627A4338C0097151C /* ImageDetailsInteractor.swift */,
 				F5ED092427A4338C0097151C /* ImageDetailsModels.swift */,
 			);
@@ -481,7 +478,6 @@
 				F52F495724C03B060056EEDC /* ListImagesModels.swift in Sources */,
 				F5ED092827A4338C0097151C /* ImageDetailsRouter.swift in Sources */,
 				F52F495924C03B060056EEDC /* ListImagesInteractor.swift in Sources */,
-				F5ED092727A4338C0097151C /* ImageDetailsPresenter.swift in Sources */,
 				F5ED092027A4261E0097151C /* ListImagesRouter.swift in Sources */,
 				F52F492F24C03ABA0056EEDC /* SceneDelegate.swift in Sources */,
 				F50B019324C0EB3A0005738F /* Constants.swift in Sources */,

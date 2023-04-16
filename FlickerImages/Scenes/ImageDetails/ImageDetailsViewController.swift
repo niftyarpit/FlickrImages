@@ -23,7 +23,6 @@ final class ImageDetailsViewController: UIViewController, ImageDetailsDisplayLog
 
     private var imageView: UIImageView!
     private var titleLabel: UILabel!
-
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -40,12 +39,10 @@ final class ImageDetailsViewController: UIViewController, ImageDetailsDisplayLog
     private func setup() {
         let viewController = self
         let interactor = ImageDetailsInteractor()
-        let presenter = ImageDetailsPresenter()
         let router = ImageDetailsRouter()
         viewController.interactor = interactor
         viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
+        interactor.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
     }
@@ -90,8 +87,7 @@ final class ImageDetailsViewController: UIViewController, ImageDetailsDisplayLog
         titleLabel.setTranslateMask()
         let leadingTitle = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         let trailingTitle = titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        let bottomTitle = titleLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        let bottomTitle = titleLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         NSLayoutConstraint.activate([leadingTitle, trailingTitle, bottomTitle])
     }
-
 }

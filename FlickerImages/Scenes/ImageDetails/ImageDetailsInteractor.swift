@@ -22,7 +22,7 @@ protocol ImageDetailsDataStore: AnyObject {
 
 final class ImageDetailsInteractor: ImageDetailsBusinessLogic, ImageDetailsDataStore {
 
-    var presenter: ImageDetailsPresentationLogic?
+    weak var viewController: ImageDetailsDisplayLogic?
     var photo: PhotosList.Photos.Photo?
 
     func refresh(request: ImageDetails.Refresh.Request) {
@@ -33,7 +33,7 @@ final class ImageDetailsInteractor: ImageDetailsBusinessLogic, ImageDetailsDataS
 
         let title = photo.title
         let url = URL(string: "https://farm\(photo.farm).staticFlickr.com/\(photo.server)/\(photo.id)_\(photo.secret)_m.jpg")!
-        let response = ImageDetails.Refresh.Response(title: title, url: url)
-        presenter?.presentRefresh(response: response)
+        let viewModel = ImageDetails.Refresh.ViewModel(title: title, url: url)
+        viewController?.displayRefresh(viewModel: viewModel)
     }
 }
